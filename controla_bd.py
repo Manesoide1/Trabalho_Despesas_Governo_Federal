@@ -244,7 +244,7 @@ def main():
 
         query = f"SELECT orgao_superior, valor_empenhado, valor_liquidado, valor_pago FROM soma_despesas_anuais_por_orgao WHERE ano = {ano} ORDER BY valor_pago DESC"
 
-        df = pd.read_sql(query, conexao).nlargest(10, 'Valor Pago (R$)')
+        df = pd.read_sql(query, conexao).nlargest(10, 'valor_pago')
 
         coleta_calcula.gera_grafico_pizza(df, 'valor_pago', 'orgao_superior', f'Distribuição de Gastos por Órgão em {ano} (Top 10)')
 
