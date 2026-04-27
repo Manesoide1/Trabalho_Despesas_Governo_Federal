@@ -184,6 +184,8 @@ def reseta_banco_de_dados():
 
     preenche_ou_atualiza_tabela_soma_despesas_anuais_por_orgao(conexao, cursor)
 
+    desconecta_banco_de_dados(conexao, cursor)
+
 def atualiza_banco_de_dados():
     conexao, cursor = conecta_banco_de_dados()
 
@@ -205,13 +207,15 @@ def atualiza_banco_de_dados():
 
     preenche_ou_atualiza_tabela_soma_despesas_anuais_por_orgao(conexao, cursor, datetime.now().year)
 
+    desconecta_banco_de_dados(conexao, cursor)
+
 def main():
 
     inicio = time.time()
 
     conexao, cursor = conecta_banco_de_dados()
 
-    #deleta_banco(cursor)
+    deleta_banco(cursor)
 
     coleta_calcula.main()
 
@@ -252,4 +256,4 @@ def main():
 
     print(f"Tempo de execução: {time.time() - inicio:.2f} segundos.\nOu {(time.time() - inicio)//60:.2f} minutos e {(time.time() - inicio) % 60:.2f} segundos.")
 
-#main()
+    #main()
