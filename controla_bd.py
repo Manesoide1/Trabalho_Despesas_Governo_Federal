@@ -256,4 +256,4 @@ def main():
 
     print(f"Tempo de execução: {time.time() - inicio:.2f} segundos.\nOu {(time.time() - inicio)//60:.2f} minutos e {(time.time() - inicio) % 60:.2f} segundos.")
 
-    #main()
+#main()
